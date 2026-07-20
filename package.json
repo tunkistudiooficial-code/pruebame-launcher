@@ -1,7 +1,7 @@
 {
     "name": "prueba-launcher",
     "preductname": "prueba Launcher",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "launcher randy",
     "main": "src/app.js",
     "author": {
