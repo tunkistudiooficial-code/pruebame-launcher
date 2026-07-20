@@ -1,8 +1,8 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "2.2.2",
-    "description": "Launcher Mincraft pour le serveur Selvania",
+    "name": "prueba-launcher",
+    "preductname": "prueba Launcher",
+    "version": "1.0.0",
+    "description": "launcher randy",
     "main": "src/app.js",
     "author": {
         "name": "luuxis, Inc.",
@@ -14,7 +14,7 @@
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
         "build": "node build.js --obf=true --build=platform",
-        "icon": "node build.js --icon"
+        "icon": "node build.js --icon=https://raw.githubusercontent.com/tunkistudiooficial-code/pruebame-launcher/refs/heads/master/src/assets/images/icon/logohostazul.png"
     },
     "license": "CCANC",
     "nodemonConfig": {
@@ -39,6 +39,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/tunkistudiooficial-code/pruebame-launcher"
     }
 }
