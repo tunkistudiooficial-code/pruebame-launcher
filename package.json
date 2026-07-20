@@ -1,7 +1,7 @@
 {
     "name": "Test-Launcher",
     "preductname": "Test Launcher",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "ola",
     "main": "src/app.js",
     "author": {
