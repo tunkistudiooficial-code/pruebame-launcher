@@ -23,11 +23,11 @@ function destroyWindow() {
 function createWindow() {
     destroyWindow();
     updateWindow = new BrowserWindow({
-        title: "Mise à jour",
+        title: "Actualizar",
         width: 400,
         height: 500,
         resizable: false,
-        icon: `./src/assets/images/icon/icon.${os.platform() === "win32" ? "ico" : "png"}`,
+        icon: `./src/assets/images/icon.${os.platform() === "win32" ? "ico" : "png"}`,
         frame: false,
         show: false,
         webPreferences: {

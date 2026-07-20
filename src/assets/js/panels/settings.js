@@ -3,7 +3,7 @@
  * Luuxis License v1.0 (voir fichier LICENSE pour les détails en FR/EN)
  */
 
-import { changePanel, accountSelect, database, Slider, config, setStatus, popup, appdata, setBackground } from '../utils.js'
+import { changePanel, accountSelect, database, Slider, config, setStatus, popup, appdata, setBackground} from '../utils.js'
 const { ipcRenderer } = require('electron');
 const os = require('os');
 
@@ -53,14 +53,14 @@ class Settings {
                 let id = e.target.id
                 if (e.target.classList.contains('account')) {
                     popupAccount.openPopup({
-                        title: 'Connexion',
-                        content: 'Veuillez patienter...',
+                        title: 'Conectando',
+                        content: 'Espere por favor...',
                         color: 'var(--color)'
                     })
 
                     if (id == 'add') {
                         document.querySelector('.cancel-home').style.display = 'inline'
-                        return changePanel('login')
+                        return changePanel('Login')
                     }
 
                     let account = await this.db.readData('accounts', id);
@@ -72,8 +72,8 @@ class Settings {
 
                 if (e.target.classList.contains("delete-profile")) {
                     popupAccount.openPopup({
-                        title: 'Connexion',
-                        content: 'Veuillez patienter...',
+                        title: 'Conexión',
+                        content: 'Espere por favor...',
                         color: 'var(--color)'
                     })
                     await this.db.deleteData('accounts', id);
@@ -90,7 +90,7 @@ class Settings {
                         configClient.account_selected = allAccounts[0].ID
                         accountSelect(allAccounts[0]);
                         let newInstanceSelect = await this.setInstance(allAccounts[0]);
-                        configClient.instance_select = newInstanceSelect.instance_select
+                        configClient.instance_selct = newInstanceSelect.instance_selct
                         return await this.db.updateData('configClient', configClient);
                     }
                 }
@@ -104,7 +104,7 @@ class Settings {
 
     async setInstance(auth) {
         let configClient = await this.db.readData('configClient')
-        let instanceSelect = configClient.instance_select
+        let instanceSelect = configClient.instance_selct
         let instancesList = await config.getInstanceList()
 
         for (let instance of instancesList) {
@@ -113,7 +113,7 @@ class Settings {
                 if (whitelist !== auth.name) {
                     if (instance.name == instanceSelect) {
                         let newInstanceSelect = instancesList.find(i => i.whitelistActive == false)
-                        configClient.instance_select = newInstanceSelect.name
+                        configClient.instance_selct = newInstanceSelect.name
                         await setStatus(newInstanceSelect.status)
                     }
                 }
@@ -166,7 +166,7 @@ class Settings {
         javaPathText.textContent = `${await appdata()}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/runtime`;
 
         let configClient = await this.db.readData('configClient')
-        let javaPath = configClient?.java_config?.java_path || 'Utiliser la version de java livre avec le launcher';
+        let javaPath = configClient?.java_config?.java_path || 'Utilice la versión de Java que viene con el iniciador';
         let javaPathInputTxt = document.querySelector(".java-path-input-text");
         let javaPathInputFile = document.querySelector(".java-path-input-file");
         javaPathInputTxt.value = javaPath;
@@ -187,12 +187,12 @@ class Settings {
                 javaPathInputTxt.value = file;
                 configClient.java_config.java_path = file
                 await this.db.updateData('configClient', configClient);
-            } else alert("Le nom du fichier doit être java ou javaw");
+            } else alert("El nombre del archivo debe ser java o javaw");
         });
 
         document.querySelector(".java-path-reset").addEventListener("click", async () => {
             let configClient = await this.db.readData('configClient')
-            javaPathInputTxt.value = 'Utiliser la version de java livre avec le launcher';
+            javaPathInputTxt.value = 'Utilice la versión de Java que viene con el iniciador';
             configClient.java_config.java_path = null
             await this.db.updateData('configClient', configClient);
         });
@@ -252,7 +252,7 @@ class Settings {
         })
 
         let themeBox = document.querySelector(".theme-box");
-        let theme = configClient?.launcher_config?.theme || "auto";
+        let theme = configClient?.launcher_config?.theme || "dark";
 
         if (theme == "auto") {
             document.querySelector('.theme-btn-auto').classList.add('active-theme');
