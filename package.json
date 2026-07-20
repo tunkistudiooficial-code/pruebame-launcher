@@ -1,7 +1,7 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "2.2.2",
+    "name": "launcher-test",
+    "preductname": "test launcher",
+    "version": "1.0.0",
     "description": "Launcher Mincraft pour le serveur Selvania",
     "main": "src/app.js",
     "author": {
@@ -39,6 +39,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/TheDoxito/launcher-test"
     }
 }
